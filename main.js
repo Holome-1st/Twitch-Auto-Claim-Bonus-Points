@@ -1,13 +1,12 @@
 // ==UserScript==
 // @name          Twitch Auto Claim Bonus Points
-// @version       1.0.1
+// @version       1.0.2
 // @description   Claim automatically bonus points in Twitch.
 // @icon          https://i.ibb.co/Y7mWWKGT/Twitch-Auto-Claim-Bonus-Points-Icon.png
 // @grant         none
 // @author        Holome
 // @homepage      https://github.com/Holome-1st/Twitch-Auto-Claim-Bonus-Points
-// @match         *://twitch.tv/*
-// @match         *://*.twitch.tv/*
+// @match         https://www.twitch.tv/*
 // @updateURL     https://raw.githubusercontent.com/Holome-1st/Twitch-Auto-Claim-Bonus-Points/refs/heads/main/main.js
 // @downloadURL   https://raw.githubusercontent.com/Holome-1st/Twitch-Auto-Claim-Bonus-Points/refs/heads/main/main.js
 // ==/UserScript==
