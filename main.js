@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name          Twitch Auto Claim Bonus Points
-// @version       1.0.2
+// @version       1.0.3
 // @description   Claim automatically bonus points in Twitch.
 // @icon          https://i.ibb.co/Y7mWWKGT/Twitch-Auto-Claim-Bonus-Points-Icon.png
 // @grant         none
@@ -12,28 +12,32 @@
 // ==/UserScript==
 
 window.addEventListener("load", () => {
-	const observer = new MutationObserver(() => {
-		const buttonNodes = document.getElementsByTagName("button");
+    const observer = new MutationObserver(() => {
+        const buttonNodes = document.getElementsByTagName("button");
 
-		Array.from(buttonNodes).forEach((buttonNode) => {
-			try {
-				if (buttonNode.getElementsByClassName("claimable-bonus__icon").length < 1) return;
-				if (buttonNode.classList.contains("claimed")) return;
-				if (buttonNode.hasAttribute("disabled")) return;
+        // Iterate over each button found.
+        Array.from(buttonNodes).forEach((buttonNode) => {
+            try {
+                // Checks if the button is eligible for claiming.
+                if (buttonNode.getElementsByClassName("claimable-bonus__icon").length < 1) return;
+                if (buttonNode.classList.contains("claimed")) return;
+                if (buttonNode.hasAttribute("disabled")) return;
 
-				buttonNode.click();
-				buttonNode.classList.add("claimed");
-				console.log("Bonus claimed.", buttonNode);
-			} catch (error) {
-				console.error("Unable to claim the bonus.", error);
-			}
-		});
-	});
+                // Clicks the button and marks it as claimed.
+                buttonNode.click();
+                buttonNode.classList.add("claimed");
+                console.log("Bonus claimed.", buttonNode);
+            } catch (error) {
+                console.error("Unable to claim the bonus.", error);
+            }
+        });
+    });
 
-	try {
-		observer.observe(document.body, { childList: true, subtree: true });
-		console.log("Start observation...");
-	} catch (error) {
-		console.error("Unable to start the observation.", error);
-	}
+    try {
+        // Start observing the body.
+        observer.observe(document.body, { childList: true, subtree: true });
+        console.log("Start observation...");
+    } catch (error) {
+        console.error("Unable to start the observation.", error);
+    }
 });
