@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name          Twitch Auto Claim Bonus Points
-// @version       1.0.3
+// @version       1.1.0
 // @description   Claim automatically bonus points in Twitch.
 // @icon          https://i.ibb.co/Y7mWWKGT/Twitch-Auto-Claim-Bonus-Points-Icon.png
 // @grant         none
@@ -11,7 +11,9 @@
 // @downloadURL   https://raw.githubusercontent.com/Holome-1st/Twitch-Auto-Claim-Bonus-Points/refs/heads/main/main.js
 // ==/UserScript==
 
-window.addEventListener("load", () => {
+(function() {
+    'use strict';
+
     const observer = new MutationObserver(() => {
         const buttonNodes = document.getElementsByTagName("button");
 
@@ -40,4 +42,4 @@ window.addEventListener("load", () => {
     } catch (error) {
         console.error("Unable to start the observation.", error);
     }
-});
+})();
